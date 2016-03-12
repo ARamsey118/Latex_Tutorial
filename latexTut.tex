@@ -160,6 +160,7 @@ This code yields:
     \end{tabular}
 \end{table}
 
+
 \subsection*{Table column alignment}
 \addcontentsline{toc}{subsection}{Table column alignment}
 
@@ -323,7 +324,7 @@ Notice that the \verb|\lstset{}| command caused the code to be interpreted as Py
 
 \subsection*{K-Maps}
 \addcontentsline{toc}{subsection}{K-Maps}
-K-Maps are very useful when working with Boolean Algebra. A package exists that makes them much simpler to produce, but is not included with \LaTeX\ like the other packages have been. Instead the kmap.sty file must be placed in the same directory as the .tex file.
+K-Maps are very useful when working with Boolean Algebra. A package exists that makes them much simpler to produce, but is not included with \LaTeX\ like the other packages have been. Instead the kmap.sty file must be placed in the same directory as the .tex file. \verb|\usepackage{kmap}| must be placed at the top of the file with the other \verb|\usepackage{}| commands. Don't forget that \verb|\usepackage{float}| is required to use \texttt{H} with \verb|\begin{figure}|.
 
 The standard K-Map format is as follows: 
 \begin{lstlisting}
@@ -378,6 +379,6 @@ Some commands are hard to remember, but not to worry Detexify knows them. It wil
     \item \verb|\LARGE| - Changes the text size. Other options available at \url{https://en.wikibooks.org/wiki/LaTeX/Fonts#Sizing_text} 
     \item \verb|\medskip| - Produces vertical space at the point. See \url{https://en.wikibooks.org/wiki/LaTeX/Lengths#Fixed-length_spaces} for the other sizes.
     \item A lot more - \url{https://en.wikibooks.org/wiki/LaTeX/Command_Glossary} 
-    \item Even more - A search for \LaTeX\ cheat sheet 
+    \item \href{http://lmgtfy.com/?q=latex+cheat+sheet}{Even more!}
 \end{itemize}
 \end{document}
