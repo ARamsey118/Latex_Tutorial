@@ -360,7 +360,13 @@ This code yields:
 
 The \verb|\implicant{}| command and its variations take 3 required arguments and one optional. The required arguments, in order, are the top left cell, the bottom right cell, and the filling color. The optional argument is the amount to add to the size of the group. Negatives are allowed. The exceptions to this rule are \verb|\implicantIso{}| which only requires one cell, and \verb|implicantCorners{}|, which takes no cell arguments. 
 
-A three variable version is also possible by exchanging \texttt{Karnaugh} for \texttt{Karnaugh3Var}. In this case, the content should only contain 8 values, instead of 16. The two variable option \texttt{Karnaugh2Var}, is also possible. 
+\subsubsection*{Possible modifications}
+\addcontentsline{toc}{subsubsection}{Possible modifications}
+A three variable version is also possible by exchanging \texttt{Karnaugh} for \texttt{Karnaugh3Var}. In this case, the content should only contain 8 values, instead of 16. The two variable K-Map, \texttt{Karnaugh2Var}, is another option. 
+
+\smallskip
+
+To change the literals displayed on the K-Map, the \texttt{kmap.sty} file has to be edited. For each K-Map, there is a line containing \verb|\scriptsize{}| and the variables inside the bracket. Modifying those letters and re-compiling will update the K-Map. It is possible to use mathmode commands in this, such as \verb|\scriptsize{$C_{in}$}|. Be aware that the variables will only be changed for one size of the K-Map.
 
 
 \subsection*{State diagrams}
