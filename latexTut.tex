@@ -7,7 +7,6 @@
 \usepackage[font=small]{caption} % " " 
 \usepackage{multicol} % mulitple columns
 \usepackage{kmap} % Karnaugh maps 
-\usepackage{ccicons}
 \usepackage{hyperref} % for hyperlinks to websites/PDF index
 \usepackage[margin=1in]{geometry} % Changes margins. 
 \newcommand{\lstsetLaTeX}{%
@@ -38,7 +37,6 @@
     By Stephanie Soldavini and Andrew Ramsey 
 \end{center}
 \vfill
-\ccbysa\ Stephanie Soldavini and Andrew Ramsey, 2016 
 
 \copyright\ 2016 by Stephanie Soldavini and Andrew Ramsey. This work is licensed under the Creative Commons Attribution-ShareAlike 4.0 International License. To view a copy of this license, visit \url{http://creativecommons.org/licenses/by-sa/4.0/}.
 
@@ -195,7 +193,7 @@ This code yields:
 
 \subsection*{Image sizing}
 \addcontentsline{toc}{subsection}{Image sizing}
-\LaTeX\ will automatically insert the image in a 1:1 ratio with the size if no other instructions are given. In the example above, the image is .35x the width of the text, as specified by \\ \texttt{width=.35$\backslash$textwidth}. Omitting the .35 will cause the image to take up the whole text width. Note that textwidth does not change with the use of environments such as itemize, but other options such as linewidth do. Specific sizes such as \texttt{width=4in} can also be used. 
+\LaTeX\ will automatically insert the image in a 1:1 ratio with the size if no other instructions are given. In the example above, the image is 0.35x the width of the text, as specified by \\ \texttt{width=0.35$\backslash$textwidth}. Omitting the 0.35 will cause the image to take up the whole text width. Note that textwidth does not change with the use of environments such as itemize, but other options such as linewidth do. Specific sizes such as \texttt{width=4in} can also be used. 
 
 \section*{Equations}
 \addcontentsline{toc}{section}{Equations}
@@ -219,7 +217,7 @@ This code yields:
     \item Whitespace is ignored. Spacing is controlled by a "\textbackslash" followed by a semicolon, colon, or comma, depending on the spacing desired. Semicolons provide the most space, and commas the least. Exclamation marks produce negative space.
     \item For an inline environment, use dollar signs. For example writing $F_{SOP}$, is done by writing \verb|$F_{SOP}$|. The braces around \texttt{SOP} ensure that all three letters are subscript, not just the first one, like so: $F_SOP$. This equation is not counted in the numbering. 
     \item Non-numbered, centered equations can be produced with the \texttt{equation*} environment provided by the amsmath package.
-    \item Multiple centered equations are best written with the \texttt{align} environment, from the amsmath package. More information is available at \url{https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics#align_and_align.2A}.
+        \item Multiple centered equations are best written with the \texttt{align} environment, from the amsmath package. More information is available at \url{https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics#align_and_align.2A}.
 \end{itemize}
 
 \section*{References}
@@ -387,4 +385,7 @@ Some commands are hard to remember, but not to worry Detexify knows them. It wil
     \item A lot more - \url{https://en.wikibooks.org/wiki/LaTeX/Command_Glossary} 
     \item \href{http://lmgtfy.com/?q=latex+cheat+sheet}{Even more!}
 \end{itemize}
+\section*{Some Final Notes}
+
+Much of the formatting required for CMPE-160, for which this tutorial was written, has already been done. To make use of this, download the files from \url{https://github.com/DeepHorizons/KGCOEReport_template} and place them in the same directory as the tex file. Then, instead of \verb|\documentclass[11pt]{article}|, write \verb|\documentclass[CMPE]{KGCOEReport}|. This tells \LaTeX to import the formatting from the downloaded file.
 \end{document}
