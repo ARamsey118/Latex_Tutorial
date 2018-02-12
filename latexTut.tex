@@ -6,9 +6,9 @@
 \usepackage[font=small]{subcaption} % Caption font size adjustments
 \usepackage[font=small]{caption} % " " 
 \usepackage{multicol} % mulitple columns
-\usepackage{kmap} % Karnaugh maps 
 \usepackage{hyperref} % for hyperlinks to websites/PDF index
 \usepackage[margin=1in]{geometry} % Changes margins. 
+\usepackage{kmap} % Karnaugh maps
 \newcommand{\lstsetLaTeX}{%
 \lstset{%
     language=TeX, % Change the listings language
@@ -327,9 +327,9 @@ K-Maps are very useful when working with Boolean Algebra. A package exists that 
 The standard K-Map format is as follows: 
 \begin{lstlisting}
 \begin{figure}[H]
-	\centering
-	\begin{Karnaugh}
-    	\content{0,1,0,0,1,0,1,1,0,1,0,0,0,0,1,1} % Put these in numerical order
+    \centering
+    \begin{Karnaugh}[A][B][C][D]
+        \contingut{0,1,0,0,1,0,1,1,0,1,0,0,0,0,1,1} % Put these in numerical order
         \implicantLateral[2pt]{4}{6}{green} % Wraps around the side and is slightly larger
     	\implicant{7}{14}{green} % Since the 2pt is in square brackets it is optional
     	\implicantTopBottom{1}{9}{red} % Different colors are possible
@@ -343,11 +343,10 @@ The standard K-Map format is as follows:
 
 This code yields:
 
-
 \begin{figure}[H]
-	\centering
-	\begin{Karnaugh}
-    	\content{0,1,0,0,1,0,1,1,0,1,0,0,0,0,1,1} % Put these in numerical order
+    \centering
+    \begin{Karnaugh}[A][B][C][D]
+        \contingut{0,1,0,0,1,0,1,1,0,1,0,0,0,0,1,1} % Put these in numerical order
         \implicantLateral[2pt]{4}{6}{green} % Wraps around the side and is slightly larger
     	\implicant{7}{14}{green} % Since the 2pt is in square brackets it is optional
     	\implicantTopBottom{1}{9}{red} % Different colors are possible
@@ -360,11 +359,11 @@ The \verb|\implicant{}| command and its variations take 3 required arguments and
 
 \subsubsection*{Possible modifications}
 \addcontentsline{toc}{subsubsection}{Possible modifications}
-A three variable version is also possible by exchanging \texttt{Karnaugh} for \texttt{Karnaugh3Var}. In this case, the content should only contain 8 values, instead of 16. The two variable K-Map, \texttt{Karnaugh2Var}, is another option. 
+A three variable version is also possible by exchanging \texttt{Karnaugh} for \texttt{Karnaugh3Var}. In this case, the contingut should only contain 8 values, instead of 16. The two variable K-Map, \texttt{Karnaugh2Var}, is another option.
 
 \smallskip
 
-To change the literals displayed on the K-Map, the \texttt{kmap.sty} file has to be edited. For each K-Map, there is a line containing \verb|\scriptsize{}| and the variables inside the bracket. Modifying those letters and re-compiling will update the K-Map. It is possible to use mathmode commands in this, such as \verb|\scriptsize{$C_{in}$}|. Be aware that the variables will only be changed for one size of the K-Map.
+To change the literals displayed on the K-Map, change the optional arguments \texttt{A}, \texttt{B},\texttt{C}, and \texttt{D} to the desired values. Note that mathmode is automatically implied, so writing \texttt{[S\_1]} will work, while \texttt{[\$S\_1\$]} will not.
 
 
 \subsection*{State diagrams}
@@ -373,7 +372,7 @@ No nice package for state diagram has been found, however, this website (\url{ht
 
 \section*{Detexify}
 \addcontentsline{toc}{section}{Detexify}
-Some commands are hard to remember, but not to worry Detexify knows them. It will produce few options based on what is drawn, as well as the packages and mode in which the command can be used. Try it at \url{http://detexify.kirelabs.org/classify.html} 
+Some commands are hard to remember, but not to worry, Detexify knows them. It will produce few options based on what is drawn, as well as the packages and mode in which the command can be used. Try it at \url{http://detexify.kirelabs.org/classify.html}
 
 
 \section*{Extra Commands}
@@ -383,7 +382,6 @@ Some commands are hard to remember, but not to worry Detexify knows them. It wil
     \item \verb|\LARGE| - Changes the text size. Other options available at \url{https://en.wikibooks.org/wiki/LaTeX/Fonts#Sizing_text} 
     \item \verb|\medskip| - Produces vertical space at the point. See \url{https://en.wikibooks.org/wiki/LaTeX/Lengths#Fixed-length_spaces} for the other sizes.
     \item A lot more - \url{https://en.wikibooks.org/wiki/LaTeX/Command_Glossary} 
-    \item \href{http://lmgtfy.com/?q=latex+cheat+sheet}{Even more!}
 \end{itemize}
 \section*{Some Final Notes}
 

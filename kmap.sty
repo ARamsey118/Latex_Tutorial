@@ -1,7 +1,11 @@
-% This work, kmap.sty is a derivative of a TeX stackexchange post (http://tex.stackexchange.com/a/140581) by Ignasi (http://tex.stackexchange.com/users/1952/ignasi), used under CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0/) with attribution required. kmap.sty has been modified and is licensed under the same terms by Stephanie Soldavini. 
-\usepackage{tikz}
-\usetikzlibrary{matrix,calc}
+% This work, kmap.sty is a derivative of a TeX stackexchange post (http://tex.stackexchange.com/a/140581) by Ignasi (http://tex.stackexchange.com/users/1952/ignasi), used under CC BY-SA 3.0 (https://creativecommons.org/licenses/by-sa/3.0/) with attribution required. kmap.sty has been modified and is licensed under the same terms by Stephanie Soldavini and Andrew Ramsey.
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{kmap}
+  [2018/02/11 v0.01 LaTeX package for creating K-Maps]
 
+\RequirePackage{tikz}
+\RequirePackage{xparse}
+\usetikzlibrary{matrix,calc}
 %isolated term
 %#1 - Optional. Space between node and grouping line. Default=0
 %#2 - node
@@ -55,11 +59,11 @@
 }
 
 %Empty Karnaugh map 4x4
-\newenvironment{Karnaugh}%
+\NewDocumentEnvironment{Karnaugh}{O{A} O{B} O{C} O{D}}
 {
 \begin{tikzpicture}[baseline=(current bounding box.north),scale=0.8]
 \draw (0,0) grid (4,4);
-\draw (0,4) -- node [pos=0.8,above right,anchor=south west] {\scriptsize{CD}} node [pos=0.8,below left,anchor=north east] {\scriptsize{AB}} ++(135:1);
+\draw (0,4) -- node [pos=0.8,above right,anchor=south west] {\scriptsize{$#3#4$}} node [pos=0.8,below left,anchor=north east] {\scriptsize{$#1#2$}} ++(135:1);
 %
 \matrix (mapa) [matrix of nodes,
         column sep={0.8cm,between origins},
@@ -81,11 +85,11 @@
 }
 
 %Empty Karnaugh map 2x4
-\newenvironment{Karnaugh3Var}%
+\NewDocumentEnvironment{Karnaugh3Var}{O{A} O{B} O{C}}
 {
 \begin{tikzpicture}[baseline=(current bounding box.north),scale=0.8]
 \draw (0,0) grid (4,2);
-\draw (0,2) -- node [pos=0.8,above right,anchor=south west] {\scriptsize{BC}} node [pos=0.8,below left,anchor=north east] {\scriptsize{A}} ++(135:1);
+\draw (0,2) -- node [pos=0.8,above right,anchor=south west] {\scriptsize{$#2#3$}} node [pos=0.8,below left,anchor=north east] {\scriptsize{$#1$}} ++(135:1);
 %
 \matrix (mapa) [matrix of nodes,
         column sep={0.8cm,between origins},
@@ -105,11 +109,11 @@
 }
 
 %Empty Karnaugh map 2x2
-\newenvironment{Karnaugh2Var}%
+\NewDocumentEnvironment{Karnaugh2Var}{O{A} O{B}}
 {
 \begin{tikzpicture}[baseline=(current bounding box.north),scale=0.8]
 \draw (0,0) grid (2,2);
-\draw (0,2) -- node [pos=0.8,above right,anchor=south west] {\scriptsize{B}} node [pos=0.8,below left,anchor=north east] {\scriptsize{A}} ++(135:1);
+\draw (0,2) -- node [pos=0.8,above right,anchor=south west] {\scriptsize{$#1$}} node [pos=0.8,below left,anchor=north east] {\scriptsize{$#2$}} ++(135:1);
 %
 \matrix (mapa) [matrix of nodes,
         column sep={0.8cm,between origins},
@@ -128,7 +132,7 @@
 }
 
 %Defines 8 or 16 values (0,1,X)
-\newcommand{\content}[1]{%
+\newcommand{\contingut}[1]{%
 \foreach \x [count=\xi from 0]  in {#1}
      \path (\xi) node {\x};
 }
@@ -151,9 +155,8 @@
         \path (\x) node {X};
 }
 
-%\begin{document}
 %    \begin{Karnaugh}
-%        \content{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
+%        \contingut{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}
 %       \implicant{0}{2}{red}
 %       \implicant{5}{15}{purple}
 %       \implicantTopBottom[3pt]{3}{10}{blue}
@@ -176,4 +179,7 @@
 %       \implicantIso{2}{red}
 %    \end{Karnaugh2Var}
 %
-%\end{document}
+%
+\endinput
+%%%
+%%% End of file `kmap.sty'.
