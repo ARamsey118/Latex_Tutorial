@@ -215,6 +215,7 @@ This code yields:
 \LaTeX\ supports much more in equation environments than is reasonable to cover. A few things to know:
 \begin{itemize}
     \item Whitespace is ignored. Spacing is controlled by a "\textbackslash" followed by a semicolon, colon, or comma, depending on the spacing desired. Semicolons provide the most space, and commas the least. Exclamation marks produce negative space.
+    \item Basic super- and sub-scripts can be written using \verb|^| and \verb|_|, respectively, when in an equation environment. For example, $F^2$ is written \verb|$F^2$|.
     \item For an inline environment, use dollar signs. For example writing $F_{SOP}$, is done by writing \verb|$F_{SOP}$|. The braces around \texttt{SOP} ensure that all three letters are subscript, not just the first one, like so: $F_SOP$. This equation is not counted in the numbering. 
     \item Non-numbered, centered equations can be produced with the \texttt{equation*} environment provided by the amsmath package.
         \item Multiple centered equations are best written with the \texttt{align} environment, from the amsmath package. More information is available at \url{https://en.wikibooks.org/wiki/LaTeX/Advanced_Mathematics#align_and_align.2A}.
@@ -363,7 +364,7 @@ A three variable version is also possible by exchanging \texttt{Karnaugh} for \t
 
 \smallskip
 
-To change the literals displayed on the K-Map, change the optional arguments \texttt{A}, \texttt{B},\texttt{C}, and \texttt{D} to the desired values. Note that mathmode is automatically implied, so writing \texttt{[S\_1]} will work, while \texttt{[\$S\_1\$]} will not.
+To change the literals displayed on the K-Map, change the optional arguments \texttt{A}, \texttt{B},\texttt{C}, and \texttt{D} to the desired values. Note that mathmode is automatically implied, so writing \verb|[S_1]| will work, while \verb|[$S_1$]| will not.
 
 
 \subsection*{State diagrams}
